@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+const { dbConnection } = require("../database/config");
+
 class Server {
   constructor() {
     // Inicializamos variables de entorno y express
@@ -8,11 +10,20 @@ class Server {
     this.port = process.env.PORT;
     this.usuariosPath = "/api/usuarios";
 
+
+    //Conectar a base de datos
+    this.conectarDB();
+
     //Middlewares
     this.middlewares();
 
     // Rutas de mi aplicación
     this.routes();
+  }
+
+  // Método para conectar a la base de datos
+  async conectarDB() {
+    await dbConnection();
   }
 
   // Middlewares siempre se ejecutan cuando se levanta el servidor
@@ -35,7 +46,7 @@ class Server {
   // Método para iniciar el servidor
   listen() {
     this.app.listen(this.port, () => {
-      console.log("Servidor corriendo en puerto", this.port);
+      console.log(" 🐻 Servidor corriendo en puerto", this.port + " 🐻" );
     });
   }
 }
