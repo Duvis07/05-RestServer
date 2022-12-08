@@ -16,7 +16,7 @@ class Server {
     //Conectar a base de datos
     this.conectarDB();
 
-    //Middlewares
+    //Middlewares es una función que se ejecuta siempre antes de llamar a un controlador
     this.middlewares();
 
     // Rutas de mi aplicación
