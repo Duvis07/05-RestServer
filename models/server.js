@@ -1,4 +1,6 @@
 const express = require("express");
+
+// CORS
 const cors = require("cors");
 
 const { dbConnection } = require("../database/config");
