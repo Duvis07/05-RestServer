@@ -11,14 +11,27 @@ const {
   usuariosPut,
 } = require("../controllers/usuarios");
 const role = require("../models/role");
+const {
+  esRoleValido,
+  emailExiste,
+  existeUsuarioPorId,
+} = require("../helpers/db-validators");
 
 const router = Router();
 
 //rutas de mi aplicación
-
 router.get("/", usuariosGet);
 
-router.put("/:id", usuariosPut);
+router.put(
+  "/:id",
+  [
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeUsuarioPorId),
+    check("rol").custom(esRoleValido),
+    validarCampos,
+  ],
+  usuariosPut
+);
 
 router.delete("/", usuariosDelete);
 
@@ -30,13 +43,9 @@ router.post(
       min: 6,
     }),
     check("correo", "El correo no es valido").isEmail(),
+    check("correo").custom(emailExiste),
     /*   check("rol", "No es un rol permitido").isIn(["ADMIN_ROLE", "USER_ROLE"]), */
-    check("rol").custom(async (rol = "") => {
-      const existeRol = await Role.findOne({ rol });
-      if (!existeRol) {
-        throw new Error(`El rol ${rol} no está registrado en la BD`);
-      }
-    }),
+    check("rol").custom(esRoleValido),
 
     validarCampos,
   ],

@@ -32,4 +32,11 @@ const UsuarioSchema = Schema({
   },
 });
 
+//Para que no se muestre el password y la version en el json
+UsuarioSchema.methods.toJSON = function () {
+  const { __v, password, _id, ...usuario } = this.toObject();
+  usuario.uid = _id;
+  return usuario;
+};
+
 module.exports = model("Usuario", UsuarioSchema);

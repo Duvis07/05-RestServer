@@ -9,41 +9,39 @@ const Usuario = require("../models/usuario");
 //Validar campos
 const { validationResult } = require("express-validator");
 
-const usuariosGet = (req = request, res = response) => {
-  const { q, nombre = "No name", apikey, page = 1, limit = 1 } = req.query;
+const usuariosGet = async (req = request, res = response) => {
+  /*  const { q, nombre = "No name", apikey, page = 1, limit = 1 } = req.query; */
 
-  res.json({
-    msg: "get API",
-    q,
-    nombre,
-    apikey,
-    page,
-    limit,
-  });
+  //paginación de usuarios con skip y limit de mongoose (skip salta los primeros 5 y limit muestra 5)
+  const { limite = 5, desde = 10 } = req.query;
+  const usuarios = await Usuario.find()
+    .skip(Number(desde))
+    .limit(Number(limite));
+
+  res.json(usuarios);
 };
 
-const usuariosPut = (req, res = response) => {
-  const id = req.params.id;
+const usuariosPut = async (req, res = response) => {
+  const { id } = req.params;
+  const { _id, password, google, correo, ...resto } = req.body;
 
-  res.status(400).json({
-    msg: "put API",
-    id,
-  });
+  //TODO validar contra base de datos
+  if (password) {
+    // Encriptar la contraseña
+    const salt = bcryptjs.genSaltSync();
+    resto.password = bcryptjs.hashSync(password, salt);
+  }
+  //Actualizar usuario
+  const usuario = await Usuario.findByIdAndUpdate(id, resto);
+
+  res.json(usuario);
 };
 
 //Crear usuario por POST
 const usuariosPost = async (req, res = response) => {
-
   const { nombre, correo, password, rol } = req.body;
   const usuario = new Usuario({ nombre, correo, password, rol });
 
-  // Verificar si el correo existe
-  const existeEmail = await Usuario.findOne({ correo });
-  if (existeEmail) {
-    return res.status(400).json({
-      msg: "El correo ya está registrado",
-    });
-  }
   // Encriptar la contraseña
   const salt = bcryptjs.genSaltSync();
   usuario.password = bcryptjs.hashSync(password, salt);
@@ -51,9 +49,7 @@ const usuariosPost = async (req, res = response) => {
   // Guardar en BD
   await usuario.save();
 
-  res.json({
-    usuario,
-  });
+  res.json(usuario);
 };
 
 const usuariosDelete = (req, res = response) => {
