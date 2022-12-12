@@ -1,6 +1,6 @@
 # RestServer-NodeJs
 
-Enpoinds
+## Enpoinds
 # Post,Get -->http://localhost:8080/api/usuarios
 {
     "nombre": "sofkaU",
@@ -12,7 +12,7 @@ Enpoinds
 }
 
 # Delete, Update -->http://localhost:8080/api/usuarios/id 
-heards--> x-token + token para poder eliminar un usuario de la bd
+## heards--> x-token + token para poder eliminar un usuario de la bd
 
  # Login-->http://localhost:8080/api/auth/login
 {
