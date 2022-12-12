@@ -14,7 +14,7 @@ const usuariosGet = async (req = request, res = response) => {
   /*  const { q, nombre = "No name", apikey, page = 1, limit = 1 } = req.query; */
 
   //paginación de usuarios con skip y limit de mongoose (skip salta los primeros 5 y limit muestra 5)
-  const { limite = 5, desde = 10 } = req.query;
+  const { limite = 5, desde = 0 } = req.query;
   const query = { estado: true };
   /*  const usuarios = await Usuario.find(query)
     .skip(Number(desde))
