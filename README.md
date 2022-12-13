@@ -20,3 +20,10 @@
  "password":"123456"
 }
 
+
+# Autenticacion con google post-->http://localhost:8080/api/google
+## Body{
+    "id_token":"token de google"
+}
+
+
