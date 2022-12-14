@@ -28,6 +28,9 @@
 }
 
 ## Categorias
-## get, Post-->http://localhost:8080/api/categorias
+## Get, Post-->http://localhost:8080/api/categorias + token en los headers
+## Body{
+    "nombre":"categoria 1",
+}
 
-## delete, put-->http://localhost:8080/api/categorias/id
+## Delete, Put-->http://localhost:8080/api/categorias/id
