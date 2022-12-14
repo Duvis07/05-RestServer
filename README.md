@@ -1,6 +1,6 @@
 # RestServer-NodeJs
 
-## Enpoinds
+## Usuarios
 ## Post,Get -->http://localhost:8080/api/usuarios
 ## Body{
     "nombre": "sofkaU",
@@ -21,9 +21,13 @@
 }
 
 
-## Autenticacion con google post-->http://localhost:8080/api/google
+## Autenticacion con google  
+## post-->http://localhost:8080/api/google
 ## Body{
     "id_token":"token de google"
 }
 
+## Categorias
+## get, Post-->http://localhost:8080/api/categorias
 
+## delete, put-->http://localhost:8080/api/categorias/id
