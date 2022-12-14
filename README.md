@@ -47,3 +47,14 @@
     "categoria":"id de la categoria"
      "usuario": "id del usuario"
 }
+
+
+## Buscar
+
+## Get-->http://localhost:8080/api/buscar/coleccion/termino + token en los headers
+ 
+## Body{
+   {
+    "coleccion": "productos",
+    "termino": "cebolla"
+}
