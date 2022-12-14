@@ -34,3 +34,16 @@
 }
 
 ## Delete, Put-->http://localhost:8080/api/categorias/id
+
+
+## Productos
+
+## Get, Post-->http://localhost:8080/api/productos + token en los headers
+## Body{
+    "nombre":"producto 1",
+    "precio":100,
+    "descripcion":"descripcion del producto",
+    "disponible":true,
+    "categoria":"id de la categoria"
+     "usuario": "id del usuario"
+}
