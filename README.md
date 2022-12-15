@@ -10,6 +10,8 @@
     "rol":"ADMIN_ROLE"
 
 }
+![image](https://user-images.githubusercontent.com/96325513/207944108-5b87bfde-a918-4289-a513-d14a2e69e456.png)
+
 
 ## Delete, Update -->http://localhost:8080/api/usuarios/id 
 ## heards--> x-token + token para poder eliminar un usuario de la bd
