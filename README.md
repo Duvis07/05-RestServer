@@ -57,6 +57,9 @@
      "usuario": "id del usuario"
 }
 
+![image](https://user-images.githubusercontent.com/96325513/207944853-97b64d90-2744-4b21-b627-03a6f461a38b.png)
+
+
 
 ## Buscar
 
