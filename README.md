@@ -39,6 +39,9 @@
     "nombre":"categoria 1",
 }
 
+![image](https://user-images.githubusercontent.com/96325513/207944396-d018a2ba-115c-4616-99e9-488bc3b217d4.png)
+
+
 ## Delete, Put-->http://localhost:8080/api/categorias/id
 
 
