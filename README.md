@@ -68,6 +68,9 @@
     "termino": "cebolla"
 }
 
+![image](https://user-images.githubusercontent.com/96325513/207944602-330b6e17-ea6f-4d5a-af6e-8ebf9fb63b32.png)
+
+
 
 ## Subir archivos
 
