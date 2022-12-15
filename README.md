@@ -20,6 +20,9 @@
  "password":"123456"
 }
 
+![image](https://user-images.githubusercontent.com/96325513/207943946-200d3552-fdad-4df5-a9ee-127c12297f89.png)
+
+
 
 ## Autenticacion con google  
 ## post-->http://localhost:8080/api/google
