@@ -58,3 +58,10 @@
     "coleccion": "productos",
     "termino": "cebolla"
 }
+
+
+## Subir archivos
+
+## Post-->http://localhost:8080/api/upload 
+
+image.png
