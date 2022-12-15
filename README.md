@@ -33,6 +33,9 @@
     "id_token":"token de google"
 }
 
+![image](https://user-images.githubusercontent.com/96325513/207945225-b302f2f3-d719-42a5-a30c-81ab27f4a0aa.png)
+
+
 ## Categorias
 ## Get, Post-->http://localhost:8080/api/categorias + token en los headers
 ## Body{
