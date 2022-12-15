@@ -64,4 +64,4 @@
 
 ## Post-->http://localhost:8080/api/upload 
 
-image.png
+![image](https://user-images.githubusercontent.com/96325513/207941281-fbe5fbf5-e700-4f8c-8942-f16d5672c151.png)
