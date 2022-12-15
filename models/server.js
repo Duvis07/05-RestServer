@@ -1,4 +1,5 @@
 const express = require("express");
+const fileUpload = require("express-fileupload");
 
 // CORS es un paquete que nos permite hacer peticiones desde cualquier origen
 const cors = require("cors");
@@ -11,11 +12,18 @@ class Server {
     this.app = express();
     this.port = process.env.PORT;
     this.paths = {
+      // Ruta con el el login y el registro
       auth: "/api/auth",
+      // Ruta con el CRUD de usuarios
       usuarios: "/api/usuarios",
+      // Ruta con el CRUD de categorías
       categorias: "/api/categorias",
+      // Ruta con el CRUD de productos
       productos: "/api/productos",
+      // Ruta para buscar productos y categorías
       buscar: "/api/buscar",
+      // Ruta para subir archivos
+      uploads: "/api/uploads",
     };
 
     //Conectar a base de datos
@@ -43,6 +51,14 @@ class Server {
 
     // Directorio público
     this.app.use(express.static("public"));
+
+    //FileUpload - carga de archivos - Carga de imágenes en el servidor - Carga de archivos en el servidor 
+    this.app.use(
+      fileUpload({
+        useTempFiles: true,
+        tempFileDir: "/tmp/",
+      })
+    );
   }
 
   // Rutas de mi aplicación (endpoints)
@@ -52,6 +68,7 @@ class Server {
     this.app.use(this.paths.categorias, require("../routes/categorias"));
     this.app.use(this.paths.productos, require("../routes/productos"));
     this.app.use(this.paths.buscar, require("../routes/buscar"));
+    this.app.use(this.paths.uploads, require("../routes/uploads"));
   }
 
   // Método para iniciar el servidor

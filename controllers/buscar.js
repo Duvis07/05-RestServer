@@ -22,9 +22,9 @@ const buscarUsuarios = async (termino = "", res = response) => {
   // expresión regular para que sea insensible a mayúsculas y minúsculas
   const regex = new RegExp(termino, "i");
   const usuarios = await Usuario.find({
-    //debe cumplir con una de las dos condiciones 
+    //debe cumplir con una de las dos condiciones
     $or: [{ nombre: regex }, { correo: regex }],
-    //debe cumplir con la condición de que el estado sea true 
+    //debe cumplir con la condición de que el estado sea true
     $and: [{ estado: true }],
   });
 
@@ -60,7 +60,7 @@ const buscarProductos = async (termino = "", res = response) => {
   const esMongoID = ObjectId.isValid(termino); // TRUE
 
   // Si es un id válido, buscar por id si el id no existe, regresa un arreglo vacío y si existe, regresa un arreglo con el producto
-// populate para mostrar la información de la categoría
+  // populate para mostrar la información de la categoría
   if (esMongoID) {
     const producto = await Producto.findById(termino).populate(
       "categoria",
@@ -70,7 +70,7 @@ const buscarProductos = async (termino = "", res = response) => {
       results: producto ? [producto] : [],
     });
   }
-// expresión regular para que sea insensible a mayúsculas y minúsculas
+  // expresión regular para que sea insensible a mayúsculas y minúsculas
   const regex = new RegExp(termino, "i");
   const productos = await Producto.find({
     nombre: regex,
