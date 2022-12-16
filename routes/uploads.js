@@ -4,6 +4,7 @@ const {
   cargarArchivo,
   actualizarImagen,
   mostrarImagen,
+  actualizarImagenCloudinary,
 } = require("../controllers/uploads");
 const { coleccionesPermitidas } = require("../helpers");
 const { validarArchivoSubir, validarCampos } = require("../middlewares");
@@ -29,7 +30,8 @@ router.put(
     ),
     validarCampos,
   ],
-  actualizarImagen
+ /*  actualizarImagen */
+  actualizarImagenCloudinary
 );
 
 //Mostar imagen por url (get) de la colección usuarios o productos
