@@ -83,3 +83,11 @@
 ## Post-->http://localhost:8080/api/upload 
 
 ![image](https://user-images.githubusercontent.com/96325513/207941281-fbe5fbf5-e700-4f8c-8942-f16d5672c151.png)
+
+
+## Actualizar imagen de las colecciones
+
+## Put -->http://localhost:8080/api/uploads/usuarios/63974647ac7dff650c38f287
+
+![image](https://user-images.githubusercontent.com/96325513/208129075-00f56731-aa14-481e-ad1a-b8200b5b3f43.png)
+
