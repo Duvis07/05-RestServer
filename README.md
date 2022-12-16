@@ -91,3 +91,11 @@
 
 ![image](https://user-images.githubusercontent.com/96325513/208129075-00f56731-aa14-481e-ad1a-b8200b5b3f43.png)
 
+
+## Mostrar imagenes de las colecciones
+
+## Get -->http://localhost:8080/api/uploads/usuarios/63974647ac7dff650c38f287
+
+![image](https://user-images.githubusercontent.com/96325513/208137972-8b3ba551-c415-48c8-9b4a-d0f7060c0cc2.png)
+
+
