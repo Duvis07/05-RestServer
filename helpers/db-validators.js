@@ -7,7 +7,7 @@ const esRoleValido = async (rol = "") => {
   }
 };
 
-// Verificar si el correo existe en la BD
+// Verificar si el correo existe en la BD (no se puede repetir) y que sea de mongoDB y que exista en la BD
 const emailExiste = async (correo = "") => {
   const existeEmail = await Usuario.findOne({ correo });
   if (existeEmail) {
@@ -31,6 +31,7 @@ const existeCategoriaPorId = async (id) => {
   }
 };
 
+// Verificar si el producto existe por ID en la BD (no se puede repetir) y que sea de mongoDB y que exista en la BD
 const existeProductoPorId = async (id) => {
   const existeProducto = await Producto.findById(id);
   if (!existeProducto) {
@@ -38,10 +39,21 @@ const existeProductoPorId = async (id) => {
   }
 };
 
+ //validar colecciones permitidas (usuarios, categorias, productos) para actualizar la imagen de un usuario, categoría o producto
+const coleccionesPermitidas = (coleccion = "", colecciones = []) => {
+  const incluida = colecciones.includes(coleccion);
+  if (!incluida) {
+    throw new Error(`La colección ${coleccion} no es permitida, ${colecciones}`);
+  }
+  return true;
+};
+
+
 module.exports = {
   esRoleValido,
   emailExiste,
   existeUsuarioPorId,
   existeCategoriaPorId,
   existeProductoPorId,
+  coleccionesPermitidas,
 };

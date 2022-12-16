@@ -86,6 +86,7 @@ const borrarProducto = async (req = request, res = response) => {
   res.json(productoBorrado);
 };
 
+//Exportar las funciones del controlador de productos para poder usarlas en otros archivos
 module.exports = {
   crearProducto,
   obtenerProductos,
