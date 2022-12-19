@@ -1,5 +1,6 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
+const { response, request } = require("express");
 
 // CORS es un paquete que nos permite hacer peticiones desde cualquier origen
 const cors = require("cors");
@@ -25,6 +26,7 @@ class Server {
       // Ruta para subir archivos
       uploads: "/api/uploads",
     };
+
 
     //Conectar a base de datos
     this.conectarDB();
@@ -52,7 +54,7 @@ class Server {
     // Directorio público
     this.app.use(express.static("public"));
 
-    //FileUpload - carga de archivos - Carga de imágenes en el servidor - Carga de archivos en el servidor 
+    //FileUpload - carga de archivos - Carga de imágenes en el servidor - Carga de archivos en el servidor
     this.app.use(
       fileUpload({
         useTempFiles: true,

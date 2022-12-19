@@ -101,6 +101,7 @@ const actualizarImagenCloudinary = async (req, res = response) => {
     cloudinary.uploader.destroy(public_id);
     console.log("Imagen borrada de cloudinary");
   }
+  
 
   // Subir imagen a cloudinary y guardar la url en la base de datos
   const { tempFilePath } = req.files.archivo;
@@ -110,9 +111,6 @@ const actualizarImagenCloudinary = async (req, res = response) => {
   await modelo.save();
   res.json(modelo);
 
-  modelo.img = await subirArchivo(req.files, undefined, coleccion);
-  await modelo.save();
-  res.json(modelo);
 };
 
 //mostrarImagen es una función que recibe la petición que muestra la imagen guardada en la base de datos (si existe) o un mensaje de error
